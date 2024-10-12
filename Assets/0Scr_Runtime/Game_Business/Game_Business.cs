@@ -12,7 +12,7 @@ public static class Game_Business {
     }
 
     static void PreTick(GameContext ctx, float dt) {
-        ctx.inputCore.Tick(ctx, dt);
+        InputCore.Tick(ctx.inputContext, dt);
     }
 
     public static void Tick(GameContext ctx, float dt) {
@@ -28,5 +28,6 @@ public static class Game_Business {
         ctx.cameraCore.GameraFollow(follow_target, new Vector2(0, 0), 0, face, dt);
         // 头的旋转
         RoleDomain.RoleHeadRotate(ctx, role, dt);
+        RoleDomain.Move(ctx, role, ctx.inputContext.leftHand.moveAxis, dt);
     }
 }

@@ -23,8 +23,18 @@ public static class RoleDomain {
     }
     // 头旋转
     public static void RoleHeadRotate(GameContext ctx, RoleEntity role, float dt) {
-        Vector3 rotateDir = ctx.inputCore.GetHeadRotate() * Vector3.forward;
+        Vector3 rotateDir = ctx.inputContext.head.rotate * Vector3.forward;
         role.head.transform.rotation = Quaternion.LookRotation(rotateDir);
-        
+    }
+    // 整个移动
+    public static void Move(GameContext ctx, RoleEntity role, Vector2 moveAxis, float dt) {
+        Vector3 moveDir = new Vector3(moveAxis.x, 0, moveAxis.y);
+        moveDir.Normalize();
+
+        moveDir = role.head.transform.rotation * moveDir;
+        moveDir = moveDir * role.speed * dt;
+        role.head.transform.position += moveDir;
+
+
     }
 }

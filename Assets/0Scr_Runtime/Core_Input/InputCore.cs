@@ -2,40 +2,29 @@ using System;
 using UnityEngine;
 
 
-public class InputCore {
-    public InputEntity head;
-
-    public InputEntity leftHand;
-
-    public InputEntity rightHand;
-
-    public InputCore() {
-        head = new InputEntity();
-        head.typeID = 0;
-        head.id = 0;
-
-        leftHand = new InputEntity();
-        leftHand.typeID = 1;
-        leftHand.id = 1;
-
-        rightHand = new InputEntity();
-        rightHand.typeID = 2;
-        rightHand.id = 2;
-    }
+public static class InputCore {
 
 
-    public void Tick(GameContext ctx, float dt) {
+
+    public static void Tick(InputContext ctx, float dt) {
 
         // 得到head的旋转
         {
-            Quaternion quat = ctx.inputAction.XRIHead.Rotation.ReadValue<Quaternion>();
+            Quaternion quat = ctx.XRInput.XRIHead.Rotation.ReadValue<Quaternion>();
             Vector3 fwd = quat * Vector3.forward;
-            head.rotate = quat;
+            ctx.head.rotate = quat;
+        }
+        // 得到左手的移动[-1,1]
+        {
+            Vector2 moveAxis = ctx.XRInput.XRILeftHandLocomotion.Move.ReadValue<Vector2>();
+            ctx.leftHand.moveAxis = moveAxis;
+        }
+        {
+            Vector2 moveAxis = ctx.XRInput.XRIRightHandLocomotion.Move.ReadValue<Vector2>();
+            ctx.rightHand.moveAxis = moveAxis;
+            Debug.Log(moveAxis);
         }
     }
 
-    public Quaternion GetHeadRotate() {
-        Debug.Log(head.rotate);
-        return head.rotate;
-    }
+
 }

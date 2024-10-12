@@ -8,10 +8,7 @@ public class GameContext {
 
     public CameraCore cameraCore;
 
-    public XRIDefaultInputActions inputAction;
-
-    public InputCore inputCore;
-
+    public InputContext inputContext;
     // repo 
     public RoleRepository roleRepository;
 
@@ -21,11 +18,7 @@ public class GameContext {
 
         assetContext = new AssetContext();
         cameraCore = new CameraCore();
-        
-        inputAction = new XRIDefaultInputActions();
-        inputCore = new InputCore();
-        
-        
+        inputContext = new InputContext();
 
         // repo
         roleRepository = new RoleRepository();
