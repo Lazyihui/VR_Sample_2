@@ -6,6 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes: []
   m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 368e0bb402c8338438dec84b6119542d, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: d6e071769b151a24585ee91f1bcabebd, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: d2e1fa4a51a663e458515f13b3201759, type: 2}
   m_UseUCBPForAssetBundles: 0
