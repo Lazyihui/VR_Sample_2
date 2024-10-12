@@ -29,14 +29,13 @@ public class InputCore {
         // 得到head的旋转
         {
             Quaternion quat = ctx.inputAction.XRIHead.Rotation.ReadValue<Quaternion>();
-
             Vector3 fwd = quat * Vector3.forward;
-
             head.rotate = quat;
         }
     }
 
     public Quaternion GetHeadRotate() {
+        Debug.Log(head.rotate);
         return head.rotate;
     }
 }

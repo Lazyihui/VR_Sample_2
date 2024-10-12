@@ -25,6 +25,6 @@ public static class RoleDomain {
     public static void RoleHeadRotate(GameContext ctx, RoleEntity role, float dt) {
         Vector3 rotateDir = ctx.inputCore.GetHeadRotate() * Vector3.forward;
         role.head.transform.rotation = Quaternion.LookRotation(rotateDir);
-        Debug.Log(role.head.transform.rotation);
+        
     }
 }
