@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Main : MonoBehaviour {
 
+    [SerializeField] Camera mainCamera;
     GameContext ctx;
 
     bool isTearDown = false;
@@ -11,18 +12,18 @@ public class Main : MonoBehaviour {
     void Awake() {
         ctx = new GameContext();
 
-        Debug.Assert(ctx != null);
-
+        ctx.Inject(mainCamera);
 
         AssetsCore.Load(ctx.assetContext);
-
-        Debug.Log("hel  ");
 
         Game_Business.Enter(ctx);
 
     }
 
     void Update() {
+        float dt = Time.deltaTime;
+
+        Game_Business.Tick(ctx, dt);
 
     }
 

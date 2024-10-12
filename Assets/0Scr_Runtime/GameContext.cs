@@ -6,6 +6,8 @@ public class GameContext {
     public GameEntity gameEntity;
     public AssetContext assetContext;
 
+    public CameraCore cameraCore;
+
     // repo 
     public RoleRepository roleRepository;
 
@@ -14,9 +16,14 @@ public class GameContext {
         gameEntity = new GameEntity();
 
         assetContext = new AssetContext();
+        cameraCore = new CameraCore();
 
         // repo
         roleRepository = new RoleRepository();
+    }
+
+    public void Inject(Camera camera) {
+        cameraCore.Inject(camera);
     }
 
     public RoleEntity Role_GetOwner() {
