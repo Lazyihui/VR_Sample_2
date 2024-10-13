@@ -9,6 +9,8 @@ public static class Game_Business {
         RoleEntity onwer = RoleDomain.Spawn(ctx);
         ctx.gameEntity.roleOwnerID = onwer.id;
 
+        AppUI.Panel_LoginOpen(ctx.uiContext);
+
     }
 
     static void PreTick(GameContext ctx, float dt) {

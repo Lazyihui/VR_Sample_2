@@ -17,7 +17,4 @@ public class AssetContext {
         entities = new Dictionary<string, GameObject>();
     }
 
-    public bool TryGetEntity(string name, GameObject entity) {
-        return entities.TryGetValue(name, out entity);
-    }
 }

@@ -18,7 +18,21 @@ public class Main : MonoBehaviour {
 
         Game_Business.Enter(ctx);
 
+        Binging();
+
     }
+
+    void Binging() {
+        var uiEvent = ctx.uiContext.uiEvent;
+
+        uiEvent.OnBtnLoginHandle = () => { 
+            Debug.Log("OnBtnLoginHandle");
+            AppUI.Panel_LoginClose(ctx.uiContext);
+        };
+
+
+
+        }
 
     void Update() {
         float dt = Time.deltaTime;
