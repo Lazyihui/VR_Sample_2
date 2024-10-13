@@ -14,6 +14,8 @@ public class GameContext {
     // repo 
     public RoleRepository roleRepository;
 
+    public ParticleRepository particleRepository;
+
     public GameContext() {
 
         gameEntity = new GameEntity();
@@ -25,6 +27,7 @@ public class GameContext {
 
         // repo
         roleRepository = new RoleRepository();
+        particleRepository = new ParticleRepository();
     }
 
     public void Inject(Camera camera) {

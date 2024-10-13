@@ -6,6 +6,10 @@ using UnityEngine;
 public static class Game_Business {
 
     public static void Enter(GameContext ctx) {
+
+        ParticleEntity en = ParticleDomain.Spawn(ctx);
+        // Debug.Log(en.id);
+
         RoleEntity onwer = RoleDomain.Spawn(ctx);
         ctx.gameEntity.roleOwnerID = onwer.id;
 
