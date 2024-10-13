@@ -15,13 +15,13 @@ public class ParticleEntity : MonoBehaviour {
     public Gradient grad;//颜色渐变
 
 
-    public int count = 10000;
+    public int count = 1000;
 
-    public float size = 0.2f;
+    public float size = 1f;
 
-    public float minRadius = 0.1f;
+    public float minRadius = 3f;
 
-    public float maxRadius = 0.15f;
+    public float maxRadius = 6f;
 
     public float speed = 0.1f;
 

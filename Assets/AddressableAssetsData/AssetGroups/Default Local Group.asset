@@ -30,7 +30,7 @@ MonoBehaviour:
     - Entity
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 87554798a09d8f04ab0a6bbdd912b63e
-    m_Address: Entity_particle
+    m_Address: Entity_Particle
     m_ReadOnly: 0
     m_SerializedLabels:
     - Entity

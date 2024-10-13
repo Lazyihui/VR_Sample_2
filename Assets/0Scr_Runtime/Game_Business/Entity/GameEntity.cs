@@ -6,10 +6,10 @@ public class GameEntity {
 
     public int roleOwnerID;
 
-    public int particleRecoredID;
+    public int particleOwnerID;
     public GameEntity() {
         roleOwnerID = 0;
-        particleRecoredID = 0;
+        particleOwnerID = 0;
     }
 
 }

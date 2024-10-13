@@ -35,5 +35,10 @@ public static class Game_Business {
         // 头的旋转
         RoleDomain.RoleHeadRotate(ctx, role, dt);
         RoleDomain.Move(ctx, role, ctx.inputContext.leftHand.moveAxis, dt);
+
+
+        ParticleEntity par = ctx.Particle_GetOwner();
+
+        ParticleDomain.Tick(ctx, par, dt);
     }
 }

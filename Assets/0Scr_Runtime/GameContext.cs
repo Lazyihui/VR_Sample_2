@@ -43,4 +43,13 @@ public class GameContext {
         }
         return entity;
     }
+
+    public ParticleEntity Particle_GetOwner() {
+        bool has = particleRepository.TryGet(gameEntity.particleOwnerID, out ParticleEntity entity);
+        if (!has) {
+            Debug.LogError("GameContext.Particle_GetOwner: particleOwnerID not found");
+            return null;
+        }
+        return entity;
+    }
 }

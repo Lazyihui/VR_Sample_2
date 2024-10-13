@@ -35,6 +35,39 @@ public static class RoleDomain {
         moveDir = moveDir * role.speed * dt;
         role.transform.position += moveDir;
 
+    }
+    // 射线
+    public static void Ray(GameContext ctx, RoleEntity role, Vector3 dir) {
+        // RaycastHit hit;
+
+        Vector3 rayOriginLeft = role.leftHand.transform.position;
+
+        Ray rayLeft = new Ray(rayOriginLeft, role.leftHand.transform.forward);
+
+        bool lefthit = Physics.Raycast(rayLeft, out RaycastHit lefthitInfo, 7000f, 1 << 8);
+
+        Debug.DrawRay(rayOriginLeft, role.leftHand.transform.forward * 7000f, Color.green);
+
+        if (lefthitInfo.collider == null) {
+            return;
+        }
+
+        ParticleEntity particle = lefthitInfo.collider.GetComponentInParent<ParticleEntity>();
+
+        if (lefthit) {
+            Debug.DrawLine(rayOriginLeft, lefthitInfo.point, Color.red);
+            Debug.Log("hit");
+        } else {
+        }
+
+
+
+
+
+        // if (Physics.Raycast(role.head.transform.position, dir, out hit, 100)) {
+        //     Debug.DrawLine(role.head.transform.position, hit.point, Color.red);
+        // }
+
 
     }
 }
