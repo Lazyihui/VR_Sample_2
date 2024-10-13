@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 2437695202631610424}
   - component: {fileID: 6797438317420962553}
   - component: {fileID: 2747549955397214444}
+  - component: {fileID: 2071760084661172152}
   m_Layer: 0
-  m_Name: Point_Entity
+  m_Name: Entity_Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -130,3 +131,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2071760084661172152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8616539234565064894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0abf511ef497c5a428e19194ad5ef79c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  speed: 0

@@ -16,6 +16,8 @@ public class GameContext {
 
     public ParticleRepository particleRepository;
 
+    public PointRepository pointRepository;
+
     public GameContext() {
 
         gameEntity = new GameEntity();
@@ -28,6 +30,7 @@ public class GameContext {
         // repo
         roleRepository = new RoleRepository();
         particleRepository = new ParticleRepository();
+        pointRepository = new PointRepository();
     }
 
     public void Inject(Camera camera) {

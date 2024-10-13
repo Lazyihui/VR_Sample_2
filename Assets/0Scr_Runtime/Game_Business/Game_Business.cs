@@ -37,8 +37,8 @@ public static class Game_Business {
         RoleDomain.Move(ctx, role, ctx.inputContext.leftHand.moveAxis, dt);
 
 
-        ParticleEntity par = ctx.Particle_GetOwner();
+        // ParticleEntity par = ctx.Particle_GetOwner();
 
-        ParticleDomain.Tick(ctx, par, dt);
+        // ParticleDomain.Tick(ctx, par, dt);
     }
 }

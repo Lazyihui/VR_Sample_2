@@ -28,6 +28,7 @@ public class Main : MonoBehaviour {
         uiEvent.OnBtnLoginHandle = () => { 
             Debug.Log("OnBtnLoginHandle");
             AppUI.Panel_LoginClose(ctx.uiContext);
+            PointDomain.Spawn(ctx);
         };
 
 
