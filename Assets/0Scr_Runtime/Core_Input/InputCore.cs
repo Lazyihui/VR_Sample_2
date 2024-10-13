@@ -18,12 +18,13 @@ public static class InputCore {
         {
             Vector2 moveAxis = ctx.XRInput.XRILeftHandLocomotion.Move.ReadValue<Vector2>();
             ctx.leftHand.moveAxis = moveAxis;
+
         }
-        {
-            Vector2 moveAxis = ctx.XRInput.XRIRightHandLocomotion.Move.ReadValue<Vector2>();
-            ctx.rightHand.moveAxis = moveAxis;
-            Debug.Log(moveAxis);
-        }
+        // {
+        //     Vector2 moveAxis = ctx.XRInput.XRIRightHandLocomotion.Move.ReadValue<Vector2>();
+        //     ctx.rightHand.moveAxis = moveAxis;
+        //     Debug.Log(moveAxis);
+        // }
     }
 
 

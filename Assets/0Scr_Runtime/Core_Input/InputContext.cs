@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 
-public class InputContext{
+public class InputContext {
     public InputEntity head;
 
     public InputEntity leftHand;
@@ -11,7 +11,10 @@ public class InputContext{
 
 
     public XRIDefaultInputActions XRInput;
-    public InputContext(){
+    public InputContext() {
+        XRInput = new XRIDefaultInputActions();
+        XRInput.Enable();
+
         head = new InputEntity();
         head.typeID = 0;
         head.id = 0;
@@ -24,6 +27,6 @@ public class InputContext{
         rightHand.typeID = 2;
         rightHand.id = 2;
 
-        XRInput = new XRIDefaultInputActions();
+
     }
 }

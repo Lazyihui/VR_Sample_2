@@ -31,9 +31,9 @@ public static class RoleDomain {
         Vector3 moveDir = new Vector3(moveAxis.x, 0, moveAxis.y);
         moveDir.Normalize();
 
-        moveDir = role.head.transform.rotation * moveDir;
+        moveDir = role.transform.rotation * moveDir;
         moveDir = moveDir * role.speed * dt;
-        role.head.transform.position += moveDir;
+        role.transform.position += moveDir;
 
 
     }

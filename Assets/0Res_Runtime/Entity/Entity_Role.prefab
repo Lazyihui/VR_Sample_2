@@ -753,7 +753,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   head: {fileID: 2700790498167755972}
+  leftHand: {fileID: 2581209555453920990}
+  rightHand: {fileID: 8383118522769904007}
   id: 0
+  speed: 0
 --- !u!1 &5883439875311189921
 GameObject:
   m_ObjectHideFlags: 0
@@ -1227,7 +1230,7 @@ MonoBehaviour:
   m_ConeCastAngle: 6
   m_RaycastMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 32
   m_RaycastTriggerInteraction: 1
   m_RaycastSnapVolumeInteraction: 1
   m_HitClosestOnly: 0
