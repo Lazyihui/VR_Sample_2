@@ -8,7 +8,7 @@ public class GameContext {
 
     public UIContext uiContext;
 
-    public CameraCore cameraCore;
+    public CameraEntity cameraEntity;
 
     public InputContext inputContext;
     // repo 
@@ -24,7 +24,6 @@ public class GameContext {
         gameEntity = new GameEntity();
 
         assetContext = new AssetContext();
-        cameraCore = new CameraCore();
         inputContext = new InputContext();
         uiContext = new UIContext();
 
@@ -35,8 +34,8 @@ public class GameContext {
         planeRepository = new PlaneRepository();
     }
 
-    public void Inject(Camera camera) {
-        cameraCore.Inject(camera);
+    public void Inject(CameraEntity camera) {
+        cameraEntity = camera;
         uiContext.Inject(assetContext);
     }
 

@@ -22,6 +22,8 @@ public static class InputCore {
             Vector2 RightmoveAxis = ctx.XRInput.XRIRightHandLocomotion.Move.ReadValue<Vector2>();
             ctx.rightHand.moveAxis = RightmoveAxis;
 
+            //   角速度  距离  moveAxis.x*0.5f*dt;
+
 
         }
         // {

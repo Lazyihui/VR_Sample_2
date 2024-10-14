@@ -61,13 +61,17 @@ public static class Game_Business {
         //相机跟随
         Vector3 follow_target = role.head.transform.position;
         Vector3 face = role.head.transform.forward;
-        ctx.cameraCore.GameraFollow(follow_target, new Vector2(0, 0), 0, face, dt);
+        ctx.cameraEntity.Stand_Follow(follow_target, new Vector2(0, 0), 0, face, dt);
         // 头的旋转
         RoleDomain.RoleHeadRotate(ctx, role, dt);
         RoleDomain.Move(ctx, role, ctx.inputContext.leftHand.moveAxis, dt);
 
         PlaneEntity plane = ctx.Plane_GetOwner();
         PlaneDomain.Move(ctx, role, plane);
+
+        Vector3 angleOffset = new Vector3(ctx.inputContext.rightHand.moveAxis.x, 0, 0);
+
+        ctx.cameraEntity.Round(role.head.transform.position, 5, angleOffset);
 
     }
 
@@ -108,7 +112,7 @@ public static class Game_Business {
         //相机跟随
         Vector3 follow_target = role.head.transform.position;
         Vector3 face = role.head.transform.forward;
-        ctx.cameraCore.GameraFollow(follow_target, new Vector2(0, 0), 0, face, dt);
+        ctx.cameraEntity.Stand_Follow(follow_target, new Vector2(0, 0), 0, face, dt);
         // 头的旋转
         RoleDomain.RoleHeadRotate(ctx, role, dt);
         RoleDomain.Move(ctx, role, ctx.inputContext.leftHand.moveAxis, dt);

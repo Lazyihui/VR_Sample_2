@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Main : MonoBehaviour {
 
-    [SerializeField] Camera mainCamera;
+    [SerializeField] CameraEntity mainCamera;
     GameContext ctx;
 
     bool isTearDown = false;
