@@ -22,6 +22,11 @@ public static class RoleDomain {
         return entity;
     }
 
+
+    public static void UnSpawn(GameContext ctx, RoleEntity role) {
+        ctx.roleRepository.Remove(role);
+        GameObject.Destroy(role.gameObject);
+    }
     public static void HandHit(GameContext ctx, RoleEntity role) {
         role.HitHead();
     }

@@ -11,6 +11,7 @@ public class PlaneEntity : MonoBehaviour {
 
 
     public void Ctor() {
+        moveSpeed = 5.5f;
 
     }
 

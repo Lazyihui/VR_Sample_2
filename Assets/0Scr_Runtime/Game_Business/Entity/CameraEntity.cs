@@ -19,7 +19,11 @@ public class CameraEntity : MonoBehaviour {
     public void Round(Vector3 centerPos, float distance, Vector3 angleOffset) {
 
         Vector3 pos = GetRoundPos(transform.position, centerPos, distance, angleOffset);
+        
         transform.position = pos;
+
+        transform.forward = centerPos - transform.position;
+
     }
 
     Vector3 GetRoundPos(Vector3 pointOnSphere, Vector3 sphereCenter, float radius, Vector3 angleOffset) {
@@ -34,9 +38,9 @@ public class CameraEntity : MonoBehaviour {
 
 
     public void cma_rotate(Vector3 forward) {
-        cam.transform.forward = forward;
+        cam.transform.localRotation = Quaternion.LookRotation(forward);
     }
 
-  
+
 
 }

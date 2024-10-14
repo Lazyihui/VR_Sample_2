@@ -43,35 +43,53 @@ public static class Game_Business {
         InputCore.Tick(ctx.inputContext, dt);
 
 
-        RoleEntity role = ctx.Role_GetOwner();
 
         if (ctx.inputContext.leftHand.isPressAButton) {
             // 游戏状态进入飞机游戏状态
 
-
+            RoleEntity role = ctx.Role_GetOwner();
             AppUI.Panel_AClose(ctx.uiContext);
 
             RoleDomain.HandHit(ctx, role);
-            RoleDomain.MoveUpDown(ctx, role, dt);
 
 
+            // TODO:不是这样写的要放在GameEntity里面
+            ctx.inputContext.leftHand.isPressAButton = false;
         }
 
 
-        //相机跟随
-        Vector3 follow_target = role.head.transform.position;
-        Vector3 face = role.head.transform.forward;
-        ctx.cameraEntity.Stand_Follow(follow_target, new Vector2(0, 0), 0, face, dt);
+
+        // //相机跟随
+        // Vector3 follow_target = role.head.transform.position;
+        // Vector3 face = role.head.transform.forward;
+        // ctx.cameraEntity.Stand_Follow(follow_target, new Vector2(0, 0), 0, face, dt);
         // 头的旋转
-        RoleDomain.RoleHeadRotate(ctx, role, dt);
-        RoleDomain.Move(ctx, role, ctx.inputContext.leftHand.moveAxis, dt);
+        // RoleDomain.RoleHeadRotate(ctx, role, dt);
+        // RoleDomain.Move(ctx, role, ctx.inputContext.leftHand.moveAxis, dt);
+
+        Vector2 moveAxis = ctx.inputContext.leftHand.moveAxis;
+
 
         PlaneEntity plane = ctx.Plane_GetOwner();
-        PlaneDomain.Move(ctx, role, plane);
+        PlaneDomain.MoveLeftRight(ctx, plane, ctx.inputContext.leftHand.moveAxis, dt);
 
-        Vector3 angleOffset = new Vector3(ctx.inputContext.rightHand.moveAxis.x, 0, 0);
+        PlaneDomain.MoveUpDown(ctx, plane, ctx.inputContext.rightHand.moveAxis, dt);
 
-        ctx.cameraEntity.Round(role.head.transform.position, 5, angleOffset);
+
+
+        Vector3 follow_target = plane.transform.position;
+        Vector3 face = plane.transform.forward;
+        Vector3 offset = new Vector3(0, 0, -5);
+
+        // ctx.cameraEntity.Stand_Follow(follow_target + offset, offset, 0, face, dt);
+        // ctx.cameraEntity.cma_rotate(ctx.inputContext.head.rotate * Vector3.forward);
+        float rotateSpeed = 30f;
+
+        float x = ctx.inputContext.rightHand.moveAxis.x * rotateSpeed * dt;
+
+        ctx.cameraEntity.Round(plane.transform.position, 5, new Vector3(0, x, 0));
+
+
 
     }
 
