@@ -19,6 +19,14 @@ public class RoleEntity : MonoBehaviour {
         speed = 5.5f;
     }
 
+    public void MoveUpDown(float y, float dt) {
+        Vector3 moveDir = new Vector3(0, y, 0);
+        moveDir.Normalize();
+
+        moveDir = this.transform.rotation * moveDir;
+        moveDir = moveDir * speed * dt;
+        this.transform.position += moveDir;
+    }
 
 
     public void SetPos(Vector3 pos) {

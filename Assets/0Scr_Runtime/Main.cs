@@ -43,7 +43,7 @@ public class Main : MonoBehaviour {
         if (ctx.gameEntity.gameState == GameState.Login) {
             Game_Business.Tick(ctx, dt);
 
-        } else if (ctx.gameEntity.gameState == GameState.Login) {
+        } else if (ctx.gameEntity.gameState == GameState.Game) {
             Game_Business.PlaneTick(ctx, dt);
 
         }

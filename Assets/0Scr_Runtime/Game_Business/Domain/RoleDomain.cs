@@ -42,6 +42,11 @@ public static class RoleDomain {
 
     }
 
+    // 上下移动
+    public static void MoveUpDown(GameContext ctx, RoleEntity Role, float dt) {
+        Role.MoveUpDown(ctx.inputContext.rightHand.moveAxis.y, dt);
+    }
+
 
 
     public static void SetPosToZero(GameContext ctx, RoleEntity role) {

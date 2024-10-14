@@ -19,6 +19,10 @@ public static class InputCore {
             Vector2 moveAxis = ctx.XRInput.XRILeftHandLocomotion.Move.ReadValue<Vector2>();
             ctx.leftHand.moveAxis = moveAxis;
 
+            Vector2 RightmoveAxis = ctx.XRInput.XRIRightHandLocomotion.Move.ReadValue<Vector2>();
+            ctx.rightHand.moveAxis = RightmoveAxis;
+
+
         }
         // {
         //     Vector2 moveAxis = ctx.XRInput.XRIRightHandLocomotion.Move.ReadValue<Vector2>();
@@ -29,9 +33,7 @@ public static class InputCore {
         // 按下A键
         {
             float isPress = ctx.XRInput.XRILeftHandInteraction.AButton.ReadValue<float>();
-
             if (isPress > 0.5f) {
-                Debug.Log("A");
                 ctx.leftHand.isPressAButton = true;
             }
 

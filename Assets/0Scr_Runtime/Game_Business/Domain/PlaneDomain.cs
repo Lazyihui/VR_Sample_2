@@ -7,7 +7,7 @@ public static class PlaneDomain {
 
     public static PlaneEntity PlaneSpawn(GameContext ctx) {
         bool has = ctx.assetContext.entities.TryGetValue("Entity_Plane", out GameObject prefab);
-        if(!has) {
+        if (!has) {
             Debug.LogError("no");
             return null;
         }
@@ -23,4 +23,14 @@ public static class PlaneDomain {
 
         return entity;
     }
+
+
+    public static void Move(GameContext ctx, RoleEntity role, PlaneEntity plane) {
+        // 两个坐标一直等于一个差值
+        Vector3 pos = new Vector3(0, 0, 3.5f);
+
+        plane.transform.position = role.transform.position + pos;
+
+    }
+
 }
