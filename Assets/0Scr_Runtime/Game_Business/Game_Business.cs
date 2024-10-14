@@ -13,12 +13,26 @@ public static class Game_Business {
         RoleEntity onwer = RoleDomain.Spawn(ctx);
         ctx.gameEntity.roleOwnerID = onwer.id;
 
-        AppUI.Panel_LoginOpen(ctx.uiContext);
 
     }
 
     static void PreTick(GameContext ctx, float dt) {
+
+
         InputCore.Tick(ctx.inputContext, dt);
+
+
+        if (ctx.gameEntity.isLoginOpen == false) {
+            ctx.gameEntity.LoginOpenTime += dt;
+
+            if (ctx.gameEntity.LoginOpenTime > 3) {
+                ctx.gameEntity.isLoginOpen = true;
+                AppUI.Panel_LoginOpen(ctx.uiContext);
+            }
+        }
+
+
+
     }
 
     public static void Tick(GameContext ctx, float dt) {
