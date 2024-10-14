@@ -24,7 +24,7 @@ public class CameraEntity : MonoBehaviour {
         transform.forward = (centerPos - transform.position).normalized;
     }
 
-    Vector3 GetRoundPos(Vector3 pointOnSphere, Vector3 sphereCenter, float radius, Vector3 angleOffset) {
+    Vector3 GetRoundPos(Vector3 pointOnSphere, Vector3 sphereCenter/*圆心*/, float radius, Vector3 angleOffset) {
         Vector3 dir = pointOnSphere - sphereCenter;
         dir.Normalize();
         Vector3 newDir = Quaternion.Euler(angleOffset) * dir;

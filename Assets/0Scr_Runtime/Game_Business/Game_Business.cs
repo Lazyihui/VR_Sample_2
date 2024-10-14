@@ -59,14 +59,6 @@ public static class Game_Business {
 
 
 
-        // //相机跟随
-        // Vector3 follow_target = role.head.transform.position;
-        // Vector3 face = role.head.transform.forward;
-        // ctx.cameraEntity.Stand_Follow(follow_target, new Vector2(0, 0), 0, face, dt);
-        // 头的旋转
-        // RoleDomain.RoleHeadRotate(ctx, role, dt);
-        // RoleDomain.Move(ctx, role, ctx.inputContext.leftHand.moveAxis, dt);
-
         Vector2 moveAxis = ctx.inputContext.leftHand.moveAxis;
         Vector3 right = ctx.cameraEntity.transform.right;
         Vector3 forward = ctx.cameraEntity.transform.forward;
@@ -82,14 +74,7 @@ public static class Game_Business {
 
         PlaneDomain.MoveUpDown(ctx, plane, ctx.inputContext.rightHand.moveAxis, dt);
 
-
-
-
-
-
-        // ctx.cameraEntity.cma_rotate(ctx.inputContext.head.rotate * Vector3.forward);
         float rotateSpeed = 30f;
-
         const float DISTANCE = 5;
 
         float x = ctx.inputContext.rightHand.moveAxis.x * rotateSpeed * dt;
