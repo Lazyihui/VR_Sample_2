@@ -68,26 +68,41 @@ public static class Game_Business {
         // RoleDomain.Move(ctx, role, ctx.inputContext.leftHand.moveAxis, dt);
 
         Vector2 moveAxis = ctx.inputContext.leftHand.moveAxis;
+        Vector3 right = ctx.cameraEntity.transform.right;
+        Vector3 forward = ctx.cameraEntity.transform.forward;
+        right = right * moveAxis.x;
+        forward = forward * moveAxis.y;
+        Vector3 moveDir = right + forward;
+        moveDir.Normalize();
 
+        moveAxis = new Vector2(moveDir.x, moveDir.z);
 
         PlaneEntity plane = ctx.Plane_GetOwner();
-        PlaneDomain.MoveLeftRight(ctx, plane, ctx.inputContext.leftHand.moveAxis, dt);
+        PlaneDomain.MoveLeftRight(ctx, plane, moveAxis, dt);
 
         PlaneDomain.MoveUpDown(ctx, plane, ctx.inputContext.rightHand.moveAxis, dt);
 
 
 
-        Vector3 follow_target = plane.transform.position;
-        Vector3 face = plane.transform.forward;
-        Vector3 offset = new Vector3(0, 0, -5);
 
-        // ctx.cameraEntity.Stand_Follow(follow_target + offset, offset, 0, face, dt);
+
+
         // ctx.cameraEntity.cma_rotate(ctx.inputContext.head.rotate * Vector3.forward);
         float rotateSpeed = 30f;
 
-        float x = ctx.inputContext.rightHand.moveAxis.x * rotateSpeed * dt;
+        const float DISTANCE = 5;
 
-        ctx.cameraEntity.Round(plane.transform.position, 5, new Vector3(0, x, 0));
+        float x = ctx.inputContext.rightHand.moveAxis.x * rotateSpeed * dt;
+        if (x != 0) {
+            ctx.cameraEntity.Round(plane.transform.position, DISTANCE, new Vector3(0, x, 0));
+            PlaneDomain.Face(ctx, plane, ctx.cameraEntity.transform.forward);
+        } else {
+
+            Vector3 follow_target = plane.transform.position;
+            Vector3 face = ctx.cameraEntity.transform.forward;
+            ctx.cameraEntity.Stand_Follow(follow_target, DISTANCE, face, dt);
+
+        }
 
 
 
@@ -130,7 +145,7 @@ public static class Game_Business {
         //相机跟随
         Vector3 follow_target = role.head.transform.position;
         Vector3 face = role.head.transform.forward;
-        ctx.cameraEntity.Stand_Follow(follow_target, new Vector2(0, 0), 0, face, dt);
+        ctx.cameraEntity.Stand_Follow(follow_target, 0, face, dt);
         // 头的旋转
         RoleDomain.RoleHeadRotate(ctx, role, dt);
         RoleDomain.Move(ctx, role, ctx.inputContext.leftHand.moveAxis, dt);
