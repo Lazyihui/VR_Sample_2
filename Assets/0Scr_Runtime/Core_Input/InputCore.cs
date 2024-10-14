@@ -25,6 +25,18 @@ public static class InputCore {
         //     ctx.rightHand.moveAxis = moveAxis;
         //     Debug.Log(moveAxis);
         // }
+
+        // 按下A键
+        {
+            float isPress = ctx.XRInput.XRILeftHandInteraction.AButton.ReadValue<float>();
+
+            if (isPress > 0.5f) {
+                Debug.Log("A");
+                ctx.leftHand.isPressAButton = true;
+            }
+
+
+        }
     }
 
 

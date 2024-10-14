@@ -18,6 +18,7 @@ public class GameContext {
 
     public PointRepository pointRepository;
 
+    public PlaneRepository planeRepository;
     public GameContext() {
 
         gameEntity = new GameEntity();
@@ -31,6 +32,7 @@ public class GameContext {
         roleRepository = new RoleRepository();
         particleRepository = new ParticleRepository();
         pointRepository = new PointRepository();
+        planeRepository = new PlaneRepository();
     }
 
     public void Inject(Camera camera) {
@@ -44,6 +46,17 @@ public class GameContext {
             Debug.LogError("GameContext.Role_GetOwner: roleOwnerID not found");
             return null;
         }
+        return entity;
+    }
+
+
+    public PlaneEntity Plane_GetOwner() {
+        bool has = planeRepository.TryGet(gameEntity.planeOwnerID, out PlaneEntity entity);
+        if (!has) {
+            Debug.LogError("GameContext.Plane_GetOwner: planeOwnerID not found");
+            return null;
+        }
+
         return entity;
     }
 

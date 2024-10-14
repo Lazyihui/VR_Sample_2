@@ -16,6 +16,55 @@ public static class Game_Business {
 
     }
 
+
+    public static void EnterControllerPlane(GameContext ctx) {
+
+        ctx.gameEntity.gameState = GameState.Game;
+
+        // 进入控制飞机的也页面
+        PlaneEntity plane = PlaneDomain.PlaneSpawn(ctx);
+        ctx.gameEntity.planeOwnerID = plane.id;
+
+        RoleEntity role = ctx.Role_GetOwner();
+
+        RoleDomain.SetPosToZero(ctx, role);
+
+        AppUI.Panel_AOpen(ctx.uiContext);
+
+
+
+    }
+
+
+
+
+    public static void PlaneTick(GameContext ctx, float dt) {
+
+        InputCore.Tick(ctx.inputContext, dt);
+
+
+        RoleEntity role = ctx.Role_GetOwner();
+
+        if (ctx.inputContext.leftHand.isPressAButton) {
+            // 游戏状态进入飞机游戏状态
+
+
+            AppUI.Panel_AClose(ctx.uiContext);
+
+            RoleDomain.HandHit(ctx, role);
+
+        }
+
+    }
+
+
+
+
+
+
+
+
+
     static void PreTick(GameContext ctx, float dt) {
 
 
@@ -31,9 +80,11 @@ public static class Game_Business {
             }
         }
 
-
-
     }
+
+
+
+
 
     public static void Tick(GameContext ctx, float dt) {
 

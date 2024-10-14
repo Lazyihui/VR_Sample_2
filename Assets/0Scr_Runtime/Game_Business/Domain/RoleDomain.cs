@@ -21,6 +21,11 @@ public static class RoleDomain {
 
         return entity;
     }
+
+    public static void HandHit(GameContext ctx, RoleEntity role) {
+        role.HitHead();
+    }
+
     // 头旋转
     public static void RoleHeadRotate(GameContext ctx, RoleEntity role, float dt) {
         Vector3 rotateDir = ctx.inputContext.head.rotate * Vector3.forward;
@@ -36,6 +41,13 @@ public static class RoleDomain {
         role.transform.position += moveDir;
 
     }
+
+
+
+    public static void SetPosToZero(GameContext ctx, RoleEntity role) {
+        role.SetPos();
+    }
+
     // 射线
     public static void Ray(GameContext ctx, RoleEntity role, Vector3 dir) {
         // RaycastHit hit;

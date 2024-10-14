@@ -25,20 +25,30 @@ public class Main : MonoBehaviour {
     void Binging() {
         var uiEvent = ctx.uiContext.uiEvent;
 
-        uiEvent.OnBtnLoginHandle = () => { 
+        uiEvent.OnBtnLoginHandle = () => {
             Debug.Log("OnBtnLoginHandle");
             AppUI.Panel_LoginClose(ctx.uiContext);
-            PointDomain.Spawn(ctx);
+
+            Game_Business.EnterControllerPlane(ctx);
+
         };
 
 
 
-        }
+    }
 
     void Update() {
         float dt = Time.deltaTime;
 
-        Game_Business.Tick(ctx, dt);
+        if (ctx.gameEntity.gameState == GameState.Login) {
+            Game_Business.Tick(ctx, dt);
+
+        } else if (ctx.gameEntity.gameState == GameState.Login) {
+            Game_Business.PlaneTick(ctx, dt);
+
+        }
+
+
 
     }
 

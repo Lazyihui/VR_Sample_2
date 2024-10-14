@@ -22,7 +22,6 @@ public static class AppUI {
 
         ctx.panel_Login = panel;
         panel.Show();
-        Debug.Log("Panel_LoginOpen");
     }
 
     public static void Panel_LoginClose(UIContext ctx) {
@@ -30,6 +29,32 @@ public static class AppUI {
         if (panel == null) {
             return;
         }
+        panel.TearDown();
+    }
+
+    public static void Panel_AOpen(UIContext ctx) {
+        Panel_A panel = ctx.panel_A;
+
+        bool has = ctx.assetContext.entities.TryGetValue("Panel_A", out GameObject prefab);
+        if (has) {
+
+            GameObject go = GameObject.Instantiate(prefab);
+            panel = go.GetComponent<Panel_A>();
+
+            panel.Ctor();
+
+        }
+
+        ctx.panel_A = panel;
+        panel.Show();
+    }
+
+    public static void Panel_AClose(UIContext ctx) {
+        Panel_A panel = ctx.panel_A;
+        if (panel == null) {
+            return;
+        }
+
         panel.TearDown();
     }
 

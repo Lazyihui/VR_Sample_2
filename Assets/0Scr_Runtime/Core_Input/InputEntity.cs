@@ -13,9 +13,12 @@ public class InputEntity {
 
     public Vector2 moveAxis;
 
+    public bool isPressAButton;
+
 
     public InputEntity() {
         moveAxis = Vector2.zero;
         pos = Vector2.zero;
+        isPressAButton = false;
     }
 }
