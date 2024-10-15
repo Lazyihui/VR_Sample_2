@@ -26,7 +26,6 @@ public class Main : MonoBehaviour {
         var uiEvent = ctx.uiContext.uiEvent;
 
         uiEvent.OnBtnLoginHandle = () => {
-            Debug.Log("OnBtnLoginHandle");
             AppUI.Panel_LoginClose(ctx.uiContext);
 
             Game_Business.EnterControllerPlane(ctx);

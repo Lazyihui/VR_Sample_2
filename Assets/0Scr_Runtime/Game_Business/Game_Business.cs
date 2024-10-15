@@ -89,6 +89,18 @@ public static class Game_Business {
             ctx.cameraEntity.Stand_Follow(follow_target, DISTANCE, face, dt);
         }
 
+        if (ctx.inputContext.leftHand.isTrigger) {
+
+            ctx.gameEntity.isPlaneRayOpen = true;
+            if (ctx.gameEntity.isPlaneRayOpen) {
+                PlaneDomain.RayShow(ctx, plane);
+            }
+        }
+
+        if (ctx.inputContext.rightHand.isTrigger && ctx.gameEntity.isLoginOpen) {
+            ctx.gameEntity.isPlaneRayOpen = false;
+            PlaneDomain.RayClose(ctx, plane);
+        }
 
 
     }

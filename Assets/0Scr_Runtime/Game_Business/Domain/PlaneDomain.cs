@@ -20,6 +20,15 @@ public static class PlaneDomain {
         return entity;
     }
 
+
+    public static void RayShow(GameContext ctx, PlaneEntity plane){
+        plane.ShowRay();
+    }
+
+    public static void RayClose(GameContext ctx, PlaneEntity plane){
+        plane.CloseRay();
+    }
+
     public static void Face(GameContext ctx, PlaneEntity plane, Vector3 faceDir) {
         plane.transform.rotation = Quaternion.LookRotation(faceDir);
     }

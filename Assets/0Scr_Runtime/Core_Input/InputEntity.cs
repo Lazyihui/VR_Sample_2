@@ -15,10 +15,12 @@ public class InputEntity {
 
     public bool isPressAButton;
 
+    public bool isTrigger;
 
     public InputEntity() {
         moveAxis = Vector2.zero;
         pos = Vector2.zero;
         isPressAButton = false;
+        isTrigger = false;
     }
 }

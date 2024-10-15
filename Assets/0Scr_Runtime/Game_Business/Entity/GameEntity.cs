@@ -14,6 +14,8 @@ public class GameEntity {
     public float LoginOpenTime;
     public bool isLoginOpen;
 
+    public bool isPlaneRayOpen = false;
+
     public GameState gameState;
     public GameEntity() {
         roleOwnerID = 0;
@@ -23,6 +25,7 @@ public class GameEntity {
         LoginOpenTime = 0;
         planeOwnerID = 0;
         gameState = GameState.Login;
+
     }
 
 }

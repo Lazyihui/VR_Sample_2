@@ -39,7 +39,22 @@ public static class InputCore {
                 ctx.leftHand.isPressAButton = true;
             }
 
+        }
+        //  按下trigger键
+        {
+            float isTrigger = ctx.XRInput.XRILeftHandInteraction.Select.ReadValue<float>();
+            if (isTrigger > 0.5f) {
+                ctx.leftHand.isTrigger = true;
+            } else {
+                ctx.leftHand.isTrigger = false;
+            }
 
+            float rightTrigger = ctx.XRInput.XRIRightHandInteraction.Select.ReadValue<float>();
+            if (rightTrigger > 0.5f) {
+                ctx.rightHand.isTrigger = true;
+            } else {
+                ctx.rightHand.isTrigger = false;
+            }
         }
     }
 

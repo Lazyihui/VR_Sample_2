@@ -21,7 +21,6 @@ public class Panel_Login : MonoBehaviour {
     public void Ctor() {
         btnLogin.onClick.AddListener(() => {
             OnbtnClick?.Invoke();
-            Debug.Log("OnbtnClick");
         });
 
         textContent = txtTitle.text.ToCharArray();
