@@ -24,6 +24,7 @@ public static class PlaneDomain {
         plane.transform.rotation = Quaternion.LookRotation(faceDir);
     }
 
+
     public static void MoveLeftRight(GameContext ctx, PlaneEntity plane, Vector2 moveAxis, float dt) {
         Vector3 moveDir = new Vector3(moveAxis.x, 0, moveAxis.y);
         moveDir.Normalize();
@@ -33,6 +34,7 @@ public static class PlaneDomain {
         moveDir = moveDir * plane.moveSpeed * dt;
         plane.transform.position += moveDir;
     }
+
 
     public static void MoveUpDown(GameContext ctx, PlaneEntity plane, Vector2 moveAxis, float dt) {
         Vector3 moveDir = new Vector3(0, moveAxis.y, 0);

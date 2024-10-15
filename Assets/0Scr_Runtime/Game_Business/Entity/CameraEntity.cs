@@ -7,10 +7,13 @@ public class CameraEntity : MonoBehaviour {
     [SerializeField] Camera cam;
 
     public void Stand_Follow(Vector3 follow_Target, float follow_distance, Vector3 face, float dt) {
-        float y = transform.position.y;
+        // float y = transform.position.y;
         Vector3 newPos = follow_Target + -face * follow_distance;
-        newPos.y = y;
+        // newPos.y = y;
         transform.position = newPos;
+
+
+
         // 面向==head.pos
         // transform.forward = face;
 

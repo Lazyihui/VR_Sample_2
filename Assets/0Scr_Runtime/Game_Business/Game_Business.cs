@@ -78,15 +78,15 @@ public static class Game_Business {
         const float DISTANCE = 5;
 
         float x = ctx.inputContext.rightHand.moveAxis.x * rotateSpeed * dt;
+
+
         if (x != 0) {
             ctx.cameraEntity.Round(plane.transform.position, DISTANCE, new Vector3(0, x, 0));
             PlaneDomain.Face(ctx, plane, ctx.cameraEntity.transform.forward);
         } else {
-
             Vector3 follow_target = plane.transform.position;
             Vector3 face = ctx.cameraEntity.transform.forward;
             ctx.cameraEntity.Stand_Follow(follow_target, DISTANCE, face, dt);
-
         }
 
 
